@@ -24,6 +24,18 @@ class CategoriesRepository {
 
         this.categories.push(category);
     }
+
+    list(): Category[] {
+        return this.categories;
+    }
+
+    // Searches DB for a name and return the category if it exists
+    findByName(name: string): Category {
+        const category = this.categories.find(
+            (category) => category.name === name
+        );
+        return category;
+    }
 }
 
 export { CategoriesRepository };
