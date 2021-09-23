@@ -7,9 +7,21 @@ import {
 class Specificationsrepository implements ISpecificationsRepository {
     private specifications: Specification[];
 
-    constructor() {
+    // Singleton Pattern begins
+    private static INSTANCE: Specificationsrepository;
+
+    private constructor() {
         this.specifications = [];
     }
+
+    public static getInstance(): Specificationsrepository {
+        if (!Specificationsrepository.INSTANCE) {
+            Specificationsrepository.INSTANCE = new Specificationsrepository();
+        }
+
+        return Specificationsrepository.INSTANCE;
+    }
+    // Singleton Pattern ends
 
     create({ name, description }: ICreateSpecificationDTO): void {
         const specification = new Specification();
