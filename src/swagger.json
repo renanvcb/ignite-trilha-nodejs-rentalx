@@ -11,7 +11,9 @@
     "paths": {
         "/categories": {
             "post": {
-                "tags": ["Category"],
+                "tags": [
+                    "Category"
+                ],
                 "summary": "Create a car category",
                 "description": "Create a new car category.",
                 "requestBody": {
@@ -41,6 +43,56 @@
                     },
                     "500": {
                         "description": "Category name already exists."
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "Category"
+                ],
+                "summary": "List categories",
+                "description": "List all car categories",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "proprieties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "description": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    },
+                                    "example": [
+                                        {
+                                            "id": "b0400ad7-b7d8-4dfc-91de-e2d6322608eb",
+                                            "name": "SUV",
+                                            "description": "Utilitário esportivo",
+                                            "created_at": "2021-09-24T23:12:51.610Z"
+                                        },
+                                        {
+                                            "id": "804d88c3-4ced-4647-9fba-fefca336c354",
+                                            "name": "Sedan",
+                                            "description": "Automóvel de três volumes",
+                                            "created_at": "2021-09-24T23:12:51.610Z"
+                                        },
+                                        {
+                                            "id": "5773c95d-3d6d-47da-bed5-a08f2b665c49",
+                                            "name": "Hatch",
+                                            "description": "Carro curto",
+                                            "created_at": "2021-09-24T23:12:51.610Z"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 }
             }
