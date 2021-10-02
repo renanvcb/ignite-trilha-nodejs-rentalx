@@ -21,7 +21,7 @@
                         "application/json": {
                             "schema": {
                                 "type": "object",
-                                "proprieties": {
+                                "properties": {
                                     "name": {
                                         "type": "string"
                                     },
@@ -39,10 +39,44 @@
                 },
                 "responses": {
                     "201": {
-                        "description": "Created"
+                        "description": "Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "name": {
+                                            "type": "string"
+                                        },
+                                        "description": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "name": "SUV",
+                                        "description": "Carros do tipo SUV."
+                                    }
+                                }
+                            }
+                        }
                     },
-                    "500": {
-                        "description": "Category name already exists."
+                    "400": {
+                        "description": "Category name already exists.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "example": {
+                                        "error": "Category already exists!"
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -61,12 +95,20 @@
                                     "type": "array",
                                     "items": {
                                         "type": "object",
-                                        "proprieties": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "string",
+                                                "format": "uuid"
+                                            },
                                             "name": {
                                                 "type": "string"
                                             },
                                             "description": {
                                                 "type": "string"
+                                            },
+                                            "created_at": {
+                                                "type": "string",
+                                                "format": "date-time"
                                             }
                                         }
                                     },
