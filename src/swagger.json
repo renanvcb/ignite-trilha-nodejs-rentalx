@@ -1,143 +1,266 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "RentalX Documentation",
-        "description": "This an API Rent.",
-        "version": "1.0.0",
-        "contact": {
-            "email": "renan@mail.com"
-        }
+      "title": "RentX Documentation",
+      "description": "This an API Rent.",
+      "version": "1.0.0",
+      "contact": {
+        "email": "renan@mail.com"
+      }
     },
     "paths": {
-        "/categories": {
-            "post": {
-                "tags": [
-                    "Category"
-                ],
-                "summary": "Create a car category",
-                "description": "Create a new car category.",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    },
-                                    "description": {
-                                        "type": "string"
-                                    }
-                                },
-                                "example": {
-                                    "name": "Category name sample",
-                                    "description": "Category description sample."
-                                }
-                            }
-                        }
-                    }
+      "/categories": {
+        "post": {
+          "tags": [
+            "Category"
+          ],
+          "summary": "Creates a car category",
+          "description": "Creates a new car category.",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewCategory"
                 },
-                "responses": {
-                    "201": {
-                        "description": "Created",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "name": {
-                                            "type": "string"
-                                        },
-                                        "description": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "example": {
-                                        "name": "SUV",
-                                        "description": "Carros do tipo SUV."
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "400": {
-                        "description": "Category name already exists.",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "object",
-                                    "properties": {
-                                        "error": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "example": {
-                                        "error": "Category already exists!"
-                                    }
-                                }
-                            }
-                        }
-                    }
+                "example": {
+                  "name": "Category name sample",
+                  "description": "Category description sample."
                 }
-            },
-            "get": {
-                "tags": [
-                    "Category"
-                ],
-                "summary": "List categories",
-                "description": "List all car categories",
-                "responses": {
-                    "200": {
-                        "description": "Success",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "object",
-                                        "properties": {
-                                            "id": {
-                                                "type": "string",
-                                                "format": "uuid"
-                                            },
-                                            "name": {
-                                                "type": "string"
-                                            },
-                                            "description": {
-                                                "type": "string"
-                                            },
-                                            "created_at": {
-                                                "type": "string",
-                                                "format": "date-time"
-                                            }
-                                        }
-                                    },
-                                    "example": [
-                                        {
-                                            "id": "b0400ad7-b7d8-4dfc-91de-e2d6322608eb",
-                                            "name": "SUV",
-                                            "description": "Utilitário esportivo",
-                                            "created_at": "2021-09-24T23:12:51.610Z"
-                                        },
-                                        {
-                                            "id": "804d88c3-4ced-4647-9fba-fefca336c354",
-                                            "name": "Sedan",
-                                            "description": "Automóvel de três volumes",
-                                            "created_at": "2021-09-24T23:12:51.610Z"
-                                        },
-                                        {
-                                            "id": "5773c95d-3d6d-47da-bed5-a08f2b665c49",
-                                            "name": "Hatch",
-                                            "description": "Carro curto",
-                                            "created_at": "2021-09-24T23:12:51.610Z"
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                }
+              }
             }
+          },
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "400": {
+              "description": "Category name already exists.",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SingleError"
+                  },
+                  "example": {
+                    "error": "Category already exists!"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Category"
+          ],
+          "summary": "List categories",
+          "description": "List all car categories",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Category"
+                  },
+                  "example": [
+                    {
+                      "id": "b0400ad7-b7d8-4dfc-91de-e2d6322608eb",
+                      "name": "SUV",
+                      "description": "Utilitário esportivo",
+                      "created_at": "2021-09-24T23:12:51.610Z"
+                    },
+                    {
+                      "id": "804d88c3-4ced-4647-9fba-fefca336c354",
+                      "name": "Sedan",
+                      "description": "Automóvel de três volumes",
+                      "created_at": "2021-09-24T23:12:51.610Z"
+                    },
+                    {
+                      "id": "5773c95d-3d6d-47da-bed5-a08f2b665c49",
+                      "name": "Hatch",
+                      "description": "Carro curto",
+                      "created_at": "2021-09-24T23:12:51.610Z"
+                    }
+                  ]
+                }
+              }
+            }
+          }
         }
+      },
+      "/categories/import": {
+        "post": {
+          "tags": [
+            "Category"
+          ],
+          "summary": "Uploads a new category",
+          "description": "Uploads a file with new car categories",
+          "requestBody": {
+            "content": {
+              "multipart/form-data": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "file": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Created"
+            }
+          }
+        }
+      },
+      "/specifications": {
+        "post": {
+          "tags": [
+            "Specification"
+          ],
+          "summary": "Creates a specification",
+          "description": "Creates a new car specification",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewSpecification"
+                },
+                "example": {
+                    "name": "Câmbio automático",
+                    "description": "Carro com câmbio automático"
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "400": {
+              "description": "Specification already exists!",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/SingleError"
+                  },
+                  "example": {
+                    "error": "Specification already exists!"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "tags": [
+            "Specification"
+          ],
+          "summary": "Lists specifications",
+          "description": "Lists all car specifications",
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/Specification"
+                  },
+                  "example": [
+                    {
+                      "id": "3046347b-6885-487a-ad3a-d977906d2917",
+                      "name": "Quatro portas",
+                      "description": "Carro com quatro portas",
+                      "created_at": "2021-10-02T19:41:10.796Z"
+                    },
+                    {
+                      "id": "f1a2f3d6-47ac-465c-a650-f15b450072ce",
+                      "name": "Câmbio automático",
+                      "description": "Carro com câmbio automático",
+                      "created_at": "2021-10-02T19:41:53.070Z"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "NewCategory": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            }
+          }
+        },
+        "Category": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "NewSpecification": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "descripton": {
+              "type": "string"
+            }
+          }
+        },
+        "Specification": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        },
+        "SingleError": {
+          "type": "object",
+          "properties": {
+            "error": {
+              "type": "string"
+            }
+          }
+        }
+      }
     }
-}
+  }
