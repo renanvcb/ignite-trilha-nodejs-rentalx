@@ -5,15 +5,15 @@ import { ICategoriesRepository } from "../../repositories/ICategoriesRepository"
 
 @injectable()
 class ListCategoriesUseCase {
-    constructor(
-        @inject("CategoriesRepository")
-        private categoriesRepository: ICategoriesRepository
-    ) {}
-    async execute(): Promise<Category[]> {
-        const allCategories = await this.categoriesRepository.list();
+  constructor(
+    @inject("CategoriesRepository")
+    private categoriesRepository: ICategoriesRepository
+  ) {}
+  async execute(): Promise<Category[]> {
+    const allCategories = await this.categoriesRepository.list();
 
-        return allCategories;
-    }
+    return allCategories;
+  }
 }
 
 export { ListCategoriesUseCase };

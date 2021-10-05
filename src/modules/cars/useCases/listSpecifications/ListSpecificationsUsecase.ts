@@ -5,15 +5,15 @@ import { ISpecificationsRepository } from "../../repositories/ISpecificationsRep
 
 @injectable()
 class ListSpecificationsUseCase {
-    constructor(
-        @inject("SpecificationsRepository")
-        private specificationsRepository: ISpecificationsRepository
-    ) {}
-    async execute(): Promise<Specification[]> {
-        const allSpecifications = await this.specificationsRepository.list();
+  constructor(
+    @inject("SpecificationsRepository")
+    private specificationsRepository: ISpecificationsRepository
+  ) {}
+  async execute(): Promise<Specification[]> {
+    const allSpecifications = await this.specificationsRepository.list();
 
-        return allSpecifications;
-    }
+    return allSpecifications;
+  }
 }
 
 export { ListSpecificationsUseCase };
