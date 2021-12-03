@@ -8,7 +8,7 @@ class ListSpecificationsUseCase {
   constructor(
     @inject("SpecificationsRepository")
     private specificationsRepository: ISpecificationsRepository
-  ) { }
+  ) {}
   async execute(): Promise<Specification[]> {
     const allSpecifications = await this.specificationsRepository.list();
 
