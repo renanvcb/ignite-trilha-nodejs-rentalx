@@ -7,14 +7,14 @@
 ### Regras de negócio
 - [x] Não será permitido cadastrar um carro com uma placa já existente.-
 - [x] Todo novo carro cadastrado deverá estar disponível por padrão.
-- [ ] O usuário responsável pelo cadastro deverá ser um administrador.
+- [x] O usuário responsável pelo cadastro deverá ser um administrador.
 
 ## Listagem de carros
 ### Requisitos funcionais
-- [ ] Deve ser possível listar os carros cadastrados disponíveis.
-- [ ] Deve ser possível listar todos os carros disponíveis pelo nome da categoria.
-- [ ] Deve ser possível listar todos os carros disponíveis pelo nome da marca.
-- [ ] Deve ser possível listar todos os carros disponíveis pelo nome do carro.
+- [x] Deve ser possível listar os carros cadastrados disponíveis.
+- [x] Deve ser possível listar todos os carros disponíveis pelo nome da categoria.
+- [x] Deve ser possível listar todos os carros disponíveis pelo nome da marca.
+- [x] Deve ser possível listar todos os carros disponíveis pelo nome do carro.
 
 ### Regras de negócio
 - [ ] Não é necessário estar autenticado para listar os carros disponíveis. 
