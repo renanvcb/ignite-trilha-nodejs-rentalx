@@ -17,8 +17,8 @@
 - [x] Deve ser possível listar todos os carros disponíveis pelo nome do carro.
 
 ### Regras de negócio
-- [ ] Não é necessário estar autenticado para listar os carros disponíveis. 
-- [ ] Deve ser possível listar todos os carros.
+- [x] Não é necessário estar autenticado para listar os carros disponíveis. 
+- [x] Deve ser possível listar todos os carros.
 
 ## Cadastro de espeficicações no carro
 ### Requisitos funcionais
