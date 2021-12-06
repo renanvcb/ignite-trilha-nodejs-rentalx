@@ -22,14 +22,12 @@
 
 ## Cadastro de espeficicações no carro
 ### Requisitos funcionais
-- [ ] Deve ser possível adicionar uma especificação em um carro.
-- [ ] Deve ser possível listar todas as epecificações.
-- [ ] Deve ser possível listar todos os carros.
+- [x] Deve ser possível adicionar uma especificação em um carro.
 
 ### Regras de negócio
-- [ ] O usuário responsável pelo cadastro deverá ser um administrador.
-- [ ] Não será permitido adicionar uma especificação em um carro não existente.
+- [x] Não será permitido adicionar uma especificação em um carro não existente.
 - [ ] Não será permitido adicionar uma especificação já existente no carro.
+- [x] O usuário responsável pelo cadastro deverá ser um administrador.
 
 ## Cadastro de imagens do carro
 ### Requisitos funcionais
