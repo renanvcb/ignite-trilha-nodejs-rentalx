@@ -26,19 +26,19 @@
 
 ### Regras de negócio
 - [x] Não será permitido adicionar uma especificação em um carro não existente.
-- [ ] Não será permitido adicionar uma especificação já existente no carro.
+- [x] Não será permitido adicionar uma especificação já existente no carro.
 - [x] O usuário responsável pelo cadastro deverá ser um administrador.
 
 ## Cadastro de imagens do carro
 ### Requisitos funcionais
-- [ ] Deve ser possível cadastrar imagens do carro.
+- [x] Deve ser possível cadastrar imagens do carro.
 
 ### Requisitos não funcionais
-- [ ] Utilizar o multer para upload dos arquivos.
+- [x] Utilizar o multer para upload dos arquivos.
 
 ### Regras de negócio
-- [ ] O usuário responsável pelo cadastro deverá ser um administrador.
-- [ ] O usuário deve poder cadastar mais de uma imagem para o mesmo carro.
+- [x] O usuário responsável pelo cadastro deverá ser um administrador.
+- [x] O usuário deve poder cadastar mais de uma imagem para o mesmo carro.
 
 ## Aluguel de carro
 ### Requisitos funcionais
