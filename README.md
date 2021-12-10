@@ -42,10 +42,10 @@
 
 ## Aluguel de carro
 ### Requisitos funcionais
-- [ ] Deve ser possível cadastrar o aluguel de um carro.
+- [x] Deve ser possível cadastrar o aluguel de um carro.
 
 ### Regras de negócio
-- [ ] O aluguel deve ter duração mínima de 24(vinte e quatro) horas.
-- [ ] Não será permitido cadastrar um novo aluguel caso já existe um aluguel ativo para o mesmo usuário.
-- [ ] Não será permitido cadastrar um novo aluguel caso já existe um aluguel ativo para o mesmo carro.
+- [x] O aluguel deve ter duração mínima de 24(vinte e quatro) horas.
+- [x] Não será permitido cadastrar um novo aluguel caso já existe um aluguel ativo para o mesmo usuário.
+- [x] Não será permitido cadastrar um novo aluguel caso já existe um aluguel ativo para o mesmo carro.
 - [ ] Somente usuários autenticados poderão cadastrar aluguéis.
