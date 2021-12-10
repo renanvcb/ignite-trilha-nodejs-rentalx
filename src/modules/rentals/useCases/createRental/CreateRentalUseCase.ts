@@ -1,8 +1,11 @@
 import dayjs from "dayjs";
+import utc from "dayjs/plugin/utc";
 
 import { Rental } from "@modules/rentals/infra/typeorm/entities/Rental";
 import { IRentalsRepository } from "@modules/rentals/repositories/IRentalsRepository";
 import { AppError } from "@shared/errors/AppError";
+
+dayjs.extend(utc);
 
 interface IRequest {
   user_id: string;
@@ -18,7 +21,8 @@ class CreateRentalUseCase {
     car_id,
     expected_return_date,
   }: IRequest): Promise<Rental> {
-    // it shoudn't be possible to create a rent to an user thar has an active car rental
+    const minimumRentalHours = 24;
+
     const userAlreadyRenting =
       await this.rentalsRepository.findOpenRentalByUser(user_id);
 
@@ -26,7 +30,6 @@ class CreateRentalUseCase {
       throw new AppError("User already has a car rental");
     }
 
-    // it shoudn't be possible to create a rent to a car already rented
     const carUnavailable = await this.rentalsRepository.findOpenRentalByCar(
       car_id
     );
@@ -35,7 +38,17 @@ class CreateRentalUseCase {
       throw new AppError("Car is not available");
     }
 
-    // rent must have a 24 hours minimal duration
+    const dateNow = dayjs().utc().local().format();
+    const formattedExpectedReturnDate = dayjs(expected_return_date)
+      .utc()
+      .local()
+      .format();
+    const compare = dayjs(formattedExpectedReturnDate).diff(dateNow, "hours");
+
+    if (compare < minimumRentalHours) {
+      throw new AppError("Rentals must have a minimal duration of 24 hours");
+    }
+
     const rental = await this.rentalsRepository.create({
       user_id,
       car_id,
